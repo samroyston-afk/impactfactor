@@ -1,0 +1,912 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- Keeps this page out of Google and other search engines. Remove this line if you later want the site to be findable. -->
+<meta name="robots" content="noindex, nofollow">
+<title>How impact ready are you? - Impact Factor</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --navy:#1A3A5C;--teal:#0B8A7A;--amber:#E8A020;--white:#fff;
+  --light:#EEF7F5;--light2:#F5FAFA;--text:#162030;--mid:#3D5A73;--muted:#6A8FA8;
+  --teal-light:#5ED8C8;--line:#e0edeb;
+}
+html{scroll-behavior:smooth}
+body{font-family:'Lato',sans-serif;color:var(--text);background:var(--light2);line-height:1.6}
+.wrap{max-width:760px;margin:0 auto;padding:0 1.5rem}
+.hidden{display:none!important}
+
+/* HEADER */
+header{background:var(--navy);padding:1.1rem 0}
+.hd{display:flex;align-items:center;justify-content:space-between;gap:1rem}
+.brand{display:flex;align-items:center;gap:.6rem;text-decoration:none}
+.brand .w1{font-weight:700;font-size:.92rem;letter-spacing:.08em;color:#fff;display:block;line-height:1.1}
+.brand .w2{font-size:.8rem;letter-spacing:.1em;color:var(--teal-light);display:block;line-height:1.1}
+.back{font-size:.85rem;color:rgba(255,255,255,.65);text-decoration:none;font-weight:700}
+.back:hover{color:#fff}
+
+/* CARD */
+main{padding:3rem 0 4rem}
+.card{background:#fff;border:1px solid var(--line);border-radius:10px;padding:2.5rem}
+h1{font-family:'Playfair Display',serif;font-size:2rem;line-height:1.2;color:var(--navy);margin-bottom:1rem}
+h2{font-family:'Playfair Display',serif;font-size:1.5rem;color:var(--navy);line-height:1.3;margin-bottom:.75rem}
+p{color:var(--mid)}
+.eyebrow{font-size:.72rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--amber);display:block;margin-bottom:.7rem}
+.lead{font-size:1.05rem;margin-bottom:1rem}
+.meta{font-size:.9rem;color:var(--muted);margin:1.5rem 0 2rem;padding-top:1.25rem;border-top:1px solid #eef3f2}
+.btn{display:inline-block;background:var(--amber);color:var(--navy);padding:.85rem 1.9rem;border:none;border-radius:4px;font-family:'Lato',sans-serif;font-weight:700;font-size:.93rem;letter-spacing:.03em;cursor:pointer;text-decoration:none;transition:background .2s}
+.btn:hover{background:#d49218}
+.btn[disabled]{background:#dfe7e6;color:#9bb0ae;cursor:not-allowed}
+.btn-quiet{background:none;border:none;color:var(--muted);font-family:'Lato',sans-serif;font-size:.86rem;text-decoration:underline;cursor:pointer;padding:0}
+.btn-quiet:hover{color:var(--mid)}
+
+/* CHOOSER */
+.choices{display:flex;flex-direction:column;gap:.75rem;margin-top:1.75rem}
+.choice{display:flex;align-items:center;justify-content:space-between;gap:1rem;width:100%;text-align:left;background:#fff;border:1px solid #d8e6e3;border-radius:8px;padding:1.15rem 1.35rem;cursor:pointer;font-family:'Lato',sans-serif;transition:border-color .15s,background .15s}
+.choice:hover{border-color:var(--teal);background:var(--light2)}
+.choice .t{display:block;font-weight:700;font-size:1.02rem;color:var(--navy);margin-bottom:.2rem}
+.choice .d{display:block;font-size:.92rem;color:var(--mid);line-height:1.5}
+.choice svg{flex-shrink:0;color:var(--teal)}
+
+/* PROGRESS */
+.prog-head{display:flex;justify-content:space-between;align-items:baseline;gap:1rem;margin-bottom:.6rem}
+.prog-label{font-size:.75rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--teal)}
+.prog-count{font-size:.8rem;color:var(--muted);white-space:nowrap}
+.prog-track{height:4px;background:#e6eeed;border-radius:2px;overflow:hidden;margin-bottom:2.25rem}
+.prog-fill{height:100%;background:var(--teal);border-radius:2px;transition:width .35s ease}
+
+/* QUESTIONS */
+.q{margin-bottom:2rem}
+.q-text{font-size:1.08rem;font-weight:700;color:var(--navy);margin-bottom:.9rem;line-height:1.45}
+.opt{display:block;width:100%;text-align:left;background:#fff;border:1px solid #dde8e6;border-radius:6px;padding:.8rem 1rem;margin-bottom:.5rem;font-family:'Lato',sans-serif;font-size:.95rem;color:var(--mid);cursor:pointer;transition:border-color .15s,background .15s;line-height:1.45}
+.opt:hover{border-color:var(--teal);background:var(--light2)}
+.opt.sel{border-color:var(--teal);background:var(--light);color:var(--navy);font-weight:700}
+.nav-row{display:flex;justify-content:space-between;align-items:center;gap:1rem;margin-top:2rem;padding-top:1.5rem;border-top:1px solid #eef3f2}
+
+/* RESULTS */
+.res-top{padding-bottom:1.75rem;border-bottom:1px solid #eef3f2;margin-bottom:2rem}
+.res-sum{font-size:1.02rem}
+.strong-line{margin-top:1rem;font-size:.97rem;color:var(--navy)}
+.sec-title{font-size:.75rem;font-weight:700;letter-spacing:.11em;text-transform:uppercase;color:var(--teal);margin-bottom:1.25rem}
+.block{margin-bottom:2.5rem}
+.radar{display:block;margin:0 auto;width:100%;max-width:440px;height:auto}
+.dim{margin-bottom:1rem}
+.dim-head{display:flex;justify-content:space-between;gap:1rem;font-size:.9rem;margin-bottom:.35rem}
+.dim-head .nm{font-weight:700;color:var(--navy)}
+.dim-head .sc{color:var(--muted);font-size:.82rem;white-space:nowrap}
+.dim-track{height:7px;background:#e9f0ef;border-radius:4px;overflow:hidden}
+.dim-fill{height:100%;border-radius:4px;background:var(--teal);width:0;transition:width .8s ease}
+.tip{background:var(--light);border-left:3px solid var(--amber);border-radius:0 5px 5px 0;padding:1.15rem 1.35rem;margin-bottom:.85rem}
+.tip h3{font-family:'Lato',sans-serif;font-size:.95rem;font-weight:700;color:var(--navy);margin-bottom:.35rem}
+.tip p{font-size:.93rem;line-height:1.6}
+.cta{background:var(--teal);border-radius:8px;padding:2rem;text-align:center;margin-top:2.5rem}
+.cta h3{font-family:'Playfair Display',serif;font-size:1.35rem;color:#fff;margin-bottom:.75rem}
+.cta p{color:rgba(255,255,255,.88);font-size:.97rem;max-width:470px;margin:0 auto 1.5rem}
+.cta p.cta-contact{color:#fff;font-weight:700;margin:0 auto}
+.cta a{display:inline-block;background:#fff;color:var(--teal);padding:.8rem 1.9rem;border-radius:4px;font-weight:700;font-size:.93rem;text-decoration:none}
+.cta a:hover{background:#f0faf9}
+.after{display:flex;justify-content:center;gap:1.75rem;flex-wrap:wrap;margin-top:1.5rem}
+footer{padding:2rem 0 3rem;text-align:center}
+footer p{font-size:.82rem;color:var(--muted)}
+footer a{color:var(--teal);text-decoration:none}
+
+@media(max-width:640px){
+  .card{padding:1.75rem 1.25rem}
+  h1{font-size:1.6rem}
+  main{padding:2rem 0 3rem}
+  .wrap{padding:0 1rem}
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap hd">
+    <a href="index.html" class="brand">
+      <svg width="34" height="34" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect width="44" height="44" rx="7" fill="#0B8A7A"/>
+        <rect x="32" y="0" width="12" height="12" rx="3" fill="#E8A020"/>
+        <text x="5" y="34" font-family="Georgia,serif" font-size="28" font-weight="bold" fill="white">IF</text>
+      </svg>
+      <span><span class="w1">IMPACT</span><span class="w2">FACTOR</span></span>
+    </a>
+    <a href="index.html" class="back">Back to the site</a>
+  </div>
+</header>
+
+<main>
+  <div class="wrap">
+
+    <!-- CHOOSER -->
+    <section class="card" id="chooser">
+      <span class="eyebrow" id="chEyebrow"></span>
+      <h1 id="chTitle"></h1>
+      <p class="lead" id="chLead"></p>
+      <div class="choices" id="choices"></div>
+      <p class="meta" id="chPrivacy" style="margin-bottom:0"></p>
+    </section>
+
+    <!-- INTRO FOR ONE VERSION -->
+    <section class="card hidden" id="intro">
+      <span class="eyebrow" id="inEyebrow"></span>
+      <h1 id="inTitle"></h1>
+      <p class="lead" id="inLead"></p>
+      <p>Twelve questions in six short sections. It takes about five minutes, and gives you a profile showing where the foundations are strong and where to start.</p>
+      <p class="meta" id="inPrivacy"></p>
+      <button class="btn" id="start">Start</button>
+      <div style="margin-top:1.25rem"><button class="btn-quiet" id="toChooser1">Choose a different version</button></div>
+    </section>
+
+    <!-- QUESTIONS -->
+    <section class="card hidden" id="quiz">
+      <div class="prog-head">
+        <span class="prog-label" id="secName"></span>
+        <span class="prog-count" id="secCount"></span>
+      </div>
+      <div class="prog-track"><div class="prog-fill" id="progFill" style="width:0%"></div></div>
+      <div id="qArea"></div>
+      <div class="nav-row">
+        <button class="btn-quiet" id="back">Back</button>
+        <button class="btn" id="next" disabled>Next</button>
+      </div>
+    </section>
+
+    <!-- RESULTS -->
+    <section class="card hidden" id="results">
+      <div class="res-top">
+        <span class="eyebrow" id="resEyebrow"></span>
+        <h2>Your profile</h2>
+        <p class="res-sum" id="resSummary"></p>
+        <p class="strong-line" id="resStrong"></p>
+      </div>
+
+      <div class="block">
+        <svg class="radar" id="radar" viewBox="0 0 440 330" role="img" aria-label="Profile across the six areas"></svg>
+      </div>
+
+      <div class="block">
+        <div class="sec-title">Area by area</div>
+        <div id="dims"></div>
+      </div>
+
+      <div class="block" id="tipsBlock" style="margin-bottom:0">
+        <div class="sec-title">Where to start</div>
+        <div id="tips"></div>
+      </div>
+
+      <div class="cta">
+        <h3 id="ctaTitle"></h3>
+        <p id="ctaText"></p>
+        <p class="cta-contact" id="ctaContact"></p>
+      </div>
+
+      <div class="after">
+        <button class="btn-quiet" id="retake">Take it again</button>
+        <button class="btn-quiet" id="toChooser2">Try another version</button>
+      </div>
+    </section>
+
+  </div>
+</main>
+
+<footer>
+  <div class="wrap"><p>Impact Factor. <a href="index.html">Back to the site</a></p></div>
+</footer>
+
+<script>
+// ---------------------------------------------------------------------------
+// CONTENT. All wording for the three versions lives here.
+// Options are listed lowest to highest and scored 1 to 4 in that order.
+// ---------------------------------------------------------------------------
+var SHARED = {
+  "chooserEyebrow": "Self-assessment",
+  "chooserTitle": "How impact ready are you?",
+  "chooserLead": "Three short self-assessments, one for each part of the research system. Twelve questions, about five minutes, and a profile of where the foundations are strong and where to start.",
+  "privacy": "Nothing is recorded or sent anywhere. Your answers stay in your browser and disappear when you close the tab.",
+  "ctaTitle": "Does this match what you see?",
+  "contactNote": "Contact details to be confirmed. For now, reply to whoever shared this link with you."
+};
+var ORDER = [
+  "researchers",
+  "managers",
+  "funders"
+];
+var TRACKS = {
+  "researchers": {
+    "label": "For researchers",
+    "blurb": "The change you are working towards, and what helps your work get used.",
+    "title": "How impact ready is your work?",
+    "lead": "Most researchers know their work could matter beyond the academy. This looks at whether the foundations are in place for that to happen, across your work as a whole rather than any one project.",
+    "sections": [
+      {
+        "id": "direction",
+        "title": "Direction",
+        "questions": [
+          {
+            "text": "Could you describe the change you want your work to contribute to, beyond any single project?",
+            "opts": [
+              "Not really. I think about impact one project at a time",
+              "Roughly, though I have never put it into words",
+              "Yes, in general terms",
+              "Yes, specifically, and I have written it down"
+            ]
+          },
+          {
+            "text": "How do your projects relate to each other?",
+            "opts": [
+              "Each one stands on its own",
+              "They share a topic, but not a direction",
+              "Most build on what came before",
+              "They build deliberately towards the change I want to see"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "expertise",
+        "title": "Expertise",
+        "questions": [
+          {
+            "text": "How would you describe what you bring to people outside academia, separate from the findings of any one project?",
+            "opts": [
+              "I would describe my latest project",
+              "I would list my research topics",
+              "I could describe my expertise in terms that matter to them",
+              "I could, and I use that description when I approach people"
+            ]
+          },
+          {
+            "text": "Do people outside academia come to you for your expertise, rather than for a particular study?",
+            "opts": [
+              "Never",
+              "Rarely",
+              "Sometimes",
+              "Regularly, and it is part of how I work"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "decisionmakers",
+        "title": "Decision-makers",
+        "questions": [
+          {
+            "text": "How well do you know who makes the decisions your work could change?",
+            "opts": [
+              "I could not name them",
+              "I could name a few organisations",
+              "I could name individuals as well as organisations",
+              "I have mapped them, and know which matter most"
+            ]
+          },
+          {
+            "text": "How well do you understand what those decision-makers need in order to act?",
+            "opts": [
+              "I have not thought about it",
+              "I can guess",
+              "I have a fair idea, from talking to them",
+              "I know their questions, pressures and timescales, and plan around them"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "formtiming",
+        "title": "Form and timing",
+        "questions": [
+          {
+            "text": "When you share research outside academia, what does that usually look like?",
+            "opts": [
+              "The published paper, and perhaps a press release",
+              "A summary or blog post for a general audience",
+              "Material written for a particular audience, such as a briefing",
+              "Working through the findings with the people who will use them, when a decision is being made"
+            ]
+          },
+          {
+            "text": "When do you involve the people who could act on your work?",
+            "opts": [
+              "Once the work is finished",
+              "Towards the end, when the findings are firming up",
+              "At points during the project",
+              "From the start, so they help shape the questions"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "relationships",
+        "title": "Relationships",
+        "questions": [
+          {
+            "text": "How strong are your relationships with organisations outside academia in your field?",
+            "opts": [
+              "I have none to speak of",
+              "A few contacts, mostly one-off",
+              "Several I could call on",
+              "Established relationships, built over years"
+            ]
+          },
+          {
+            "text": "What usually happens to those relationships when a project ends?",
+            "opts": [
+              "They end with the project",
+              "They fade unless something new comes up",
+              "I keep in touch",
+              "They carry on, and often lead to the next piece of work"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "evidence",
+        "title": "Evidence",
+        "questions": [
+          {
+            "text": "Do you record evidence of engagement and influence as it happens?",
+            "opts": [
+              "No",
+              "Occasionally, in scattered places",
+              "Yes, in one place, though not every time",
+              "Yes, routinely, with dates and sources"
+            ]
+          },
+          {
+            "text": "If you were asked tomorrow to show your work had changed something, what could you produce?",
+            "opts": [
+              "Very little",
+              "Download and citation figures",
+              "Emails or meeting notes showing people engaged",
+              "Records of decisions or practice that changed, with testimony from those involved"
+            ]
+          }
+        ]
+      }
+    ],
+    "tips": {
+      "direction": "Write down, in a few sentences, the change you want your work to contribute to over the next five to ten years. Then look at your current projects and ask which of them move towards it.",
+      "expertise": "List what you know and can do that people outside academia would value, separately from your latest findings. That, rather than any one study, is what brings people back to you.",
+      "decisionmakers": "Name the organisations and people whose decisions your work could change, then find out what they are deciding over the next year and what would help them. Ask them, if you can.",
+      "formtiming": "Take one piece of current work and ask who needs it, in what form, and when. A short briefing timed to a live decision does more than a paper that arrives after the decision has been made.",
+      "relationships": "Pick two or three organisations that matter in your field and plan to stay in touch between projects, not only when you have something to share.",
+      "evidence": "Start a simple evidence log: the date, who you engaged, and what happened next. Downloads and citations show that work was seen, not that anything changed."
+    },
+    "summaries": [
+      {
+        "min": 38,
+        "text": "Most of the foundations are in place. Your answers suggest impact is part of how you work, not something added at the end of a project."
+      },
+      {
+        "min": 26,
+        "text": "Some foundations are in place and some are still to build. The areas below are where effort is likely to make the most difference."
+      },
+      {
+        "min": 0,
+        "text": "Most of the foundations are still to build. The two areas below are a good place to start."
+      }
+    ],
+    "cta": "I am testing these questions as much as you are. If the profile looks right, or wrong, I would like to hear which."
+  },
+  "managers": {
+    "label": "For research managers",
+    "blurb": "Whether impact is building up across your institution, or being assembled at the deadline.",
+    "title": "How impact ready is your institution?",
+    "lead": "For research managers and others who support researchers, at any level from a department to a whole university. It looks at whether impact is building up over time, or being assembled at the deadline.",
+    "sections": [
+      {
+        "id": "strategy",
+        "title": "Strategy",
+        "questions": [
+          {
+            "text": "Beyond REF, does your institution or school have a view of the change its research is trying to bring about?",
+            "opts": [
+              "No, impact is mainly a REF exercise",
+              "In broad statements, such as a research strategy",
+              "For some areas or research groups",
+              "Yes, and it shapes where support and investment go"
+            ]
+          },
+          {
+            "text": "How is impact work planned across your institution?",
+            "opts": [
+              "Around the REF cycle",
+              "Mostly around the REF cycle, with some ongoing work",
+              "As ongoing work, stepped up before REF",
+              "As ongoing work, with REF as one outcome of it"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "timing",
+        "title": "Timing",
+        "questions": [
+          {
+            "text": "When do researchers usually first get impact support?",
+            "opts": [
+              "When case studies are being written",
+              "When a project is ending",
+              "When applying for funding",
+              "Before applying, while ideas are being shaped"
+            ]
+          },
+          {
+            "text": "How much of your team's time goes on writing up impact that has already happened, compared with helping it happen?",
+            "opts": [
+              "Nearly all on writing up",
+              "Mostly writing up",
+              "Roughly even",
+              "Mostly helping it happen"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "capability",
+        "title": "Capability",
+        "questions": [
+          {
+            "text": "What impact development is available to your researchers?",
+            "opts": [
+              "Little or none",
+              "Occasional sessions or guidance documents",
+              "Regular training",
+              "Training, plus ongoing support for individuals as their work develops"
+            ]
+          },
+          {
+            "text": "Does impact support continue for a researcher between projects?",
+            "opts": [
+              "No, it is tied to specific grants or case studies",
+              "Only informally",
+              "For some researchers",
+              "Yes, support follows the researcher, not just the project"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "relationships",
+        "title": "Relationships",
+        "questions": [
+          {
+            "text": "How strong are your institution's relationships with the policy and practice organisations your research could inform?",
+            "opts": [
+              "Weak, or none",
+              "Some, held by individual academics",
+              "Several, some held at institutional level",
+              "Strong, and they survive when individuals move on"
+            ]
+          },
+          {
+            "text": "How well do you understand what those organisations need from research?",
+            "opts": [
+              "Not well",
+              "We make assumptions",
+              "We know for some of them, from talking to them",
+              "We know their questions, pressures and timescales, and plan around them"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "recognition",
+        "title": "Recognition",
+        "questions": [
+          {
+            "text": "How far does impact work count in workload allocation?",
+            "opts": [
+              "Not at all",
+              "Informally, depending on the line manager",
+              "For some roles or projects",
+              "It is built into the workload model"
+            ]
+          },
+          {
+            "text": "How far does impact count in promotion and recognition?",
+            "opts": [
+              "Not in practice",
+              "On paper, but rarely in practice",
+              "It counts, but less than publications and grants",
+              "It counts alongside publications and grants"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "evidence",
+        "title": "Evidence",
+        "questions": [
+          {
+            "text": "How is evidence of impact captured across your institution?",
+            "opts": [
+              "When a case study needs it",
+              "Researchers keep their own, in their own ways",
+              "There is a shared system, used by some",
+              "There is a shared system that most researchers use as things happen"
+            ]
+          },
+          {
+            "text": "When you go looking for evidence of impact, what do you mostly find?",
+            "opts": [
+              "Very little",
+              "Downloads, citations and event attendance",
+              "Records showing people engaged",
+              "Evidence that decisions or practice changed"
+            ]
+          }
+        ]
+      }
+    ],
+    "tips": {
+      "strategy": "Ask a few heads of department what change their research is aiming for beyond the next REF. Where there is no clear answer, that conversation is the place to start.",
+      "timing": "Look at where your team's time went last term. Moving even a small share from writing up impact to helping it happen, at the bid stage, changes what there is to write up later.",
+      "capability": "Pick a small group of researchers and support them across their work for a year, rather than around a single project or case study. It shows what support that follows the researcher looks like in practice.",
+      "relationships": "List the external organisations your strongest impact has come through, and note who holds each relationship. Any held by one person who could leave are worth widening.",
+      "recognition": "Find out how impact work counts in your workload model and promotion criteria, and talk to whoever owns them. Researchers put time into impact more readily when it is recognised.",
+      "evidence": "Give researchers one simple place to log evidence as it happens: the date, who was involved, and what changed. Downloads and attendance figures show work was seen; case studies need evidence that something changed."
+    },
+    "summaries": [
+      {
+        "min": 38,
+        "text": "Most of the foundations are in place. Your answers suggest impact is building up across your institution, rather than being assembled at the deadline."
+      },
+      {
+        "min": 26,
+        "text": "Some foundations are in place and some are still to build. The areas below are the ones most likely to decide whether impact builds up over time or gets assembled at the deadline."
+      },
+      {
+        "min": 0,
+        "text": "Most of the foundations are still to build, which usually means impact is assembled at the deadline rather than building up over time. The two areas below are a good place to start."
+      }
+    ],
+    "cta": "I am testing these questions as much as you are. If this matches what you see across your institution, or gets it wrong, I would like to hear which."
+  },
+  "funders": {
+    "label": "For research funders",
+    "blurb": "Whether your programmes are set up for the research you fund to change something.",
+    "title": "How impact ready is your grant-making?",
+    "lead": "For research funders and the people who design and run their programmes. It looks at whether a programme is set up for the research it funds to change something, during the grants and after them.",
+    "sections": [
+      {
+        "id": "outcomes",
+        "title": "Outcomes",
+        "questions": [
+          {
+            "text": "How clearly has your organisation described the change it wants its research funding to bring about?",
+            "opts": [
+              "Not beyond broad aims",
+              "In general terms, such as in a strategy",
+              "Clearly, for some programmes",
+              "Clearly, and programmes are designed around it"
+            ]
+          },
+          {
+            "text": "Do you look at what your grants add up to, beyond the results of each one?",
+            "opts": [
+              "Not really, each grant is judged on its own",
+              "Occasionally, in programme reviews",
+              "Yes, at programme level",
+              "Yes, and it shapes what we fund next"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "design",
+        "title": "Design",
+        "questions": [
+          {
+            "text": "Who shapes the research questions you fund?",
+            "opts": [
+              "Applicants, entirely",
+              "Mostly applicants, within broad themes we set",
+              "We set priorities, informed by researchers",
+              "We set priorities with the people who would use the research"
+            ]
+          },
+          {
+            "text": "When you design a programme, how much thought goes into how its findings will reach the people who could act on them?",
+            "opts": [
+              "Very little, that is for grant holders",
+              "Some, in the guidance to applicants",
+              "A fair amount, at the design stage",
+              "It is built into the design, including timing and partners"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "assessment",
+        "title": "Assessment",
+        "questions": [
+          {
+            "text": "How do you assess the impact plans in applications?",
+            "opts": [
+              "We do not assess them separately",
+              "As one section reviewers score alongside everything else",
+              "Against specific criteria for impact",
+              "Against specific criteria, with reviewers who know policy or practice"
+            ]
+          },
+          {
+            "text": "What do the strongest impact plans you receive usually describe?",
+            "opts": [
+              "Publications and conferences",
+              "Dissemination, such as events and summaries",
+              "Named audiences and how they will be reached",
+              "The decisions the work could change, and how the team will be involved in them"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "support",
+        "title": "Support",
+        "questions": [
+          {
+            "text": "What support do funded teams get to achieve impact?",
+            "opts": [
+              "None beyond the grant itself",
+              "Guidance documents or events",
+              "Budget that can be spent on impact",
+              "Budget, plus practical support from people who know the field"
+            ]
+          },
+          {
+            "text": "How flexible are you when an impact opportunity comes up during a grant?",
+            "opts": [
+              "Not at all, the plan is fixed",
+              "We consider changes, slowly",
+              "Reasonably flexible",
+              "We can move quickly, including extra time or funding"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "beyond",
+        "title": "Beyond the grant",
+        "questions": [
+          {
+            "text": "What happens when a grant ends?",
+            "opts": [
+              "The relationship ends with the final report",
+              "We stay in touch informally",
+              "Some teams get follow-on support or funding",
+              "We plan for impact beyond the end date, with support to match"
+            ]
+          },
+          {
+            "text": "Do you build relationships with researchers across grants, or grant by grant?",
+            "opts": [
+              "Grant by grant",
+              "Mostly grant by grant",
+              "With some researchers over time",
+              "Deliberately across grants, as part of how we fund"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "learning",
+        "title": "Learning",
+        "questions": [
+          {
+            "text": "What do you ask grant holders to report?",
+            "opts": [
+              "Outputs, such as publications",
+              "Outputs and engagement, such as events and downloads",
+              "Some evidence of what changed",
+              "What changed, for whom, and how the research contributed"
+            ]
+          },
+          {
+            "text": "How well could you say what your funding has changed over the last five years?",
+            "opts": [
+              "Not at all",
+              "Through a few examples",
+              "For some programmes",
+              "Across the portfolio, with evidence"
+            ]
+          }
+        ]
+      }
+    ],
+    "tips": {
+      "outcomes": "Write down, in a few sentences, the change your funding is meant to contribute to over the next ten years, then test current programmes against it. Where a programme cannot be connected to it, ask why.",
+      "design": "For your next programme, bring two or three of the people who would use the research into setting the questions. It is the easiest point at which to build in a route to change.",
+      "assessment": "Ask reviewers to look for the decisions an application could change, not the dissemination it promises. A reviewer from policy or practice on each panel tests that well.",
+      "support": "Look at how grant holders can spend on impact, and how quickly you can respond when an opportunity comes up mid-grant. Opportunities to influence rarely wait for the next funding round.",
+      "beyond": "Pick a few recently finished grants with live opportunities and offer a small amount of follow-on support. Impact opportunities often arrive after the end date, when nothing is funding them.",
+      "learning": "Change one reporting question from what was produced to what changed, and for whom. It is a small edit that shifts what grant holders pay attention to."
+    },
+    "summaries": [
+      {
+        "min": 38,
+        "text": "Most of the foundations are in place. Your answers suggest your funding is set up to change things, not only to produce research."
+      },
+      {
+        "min": 26,
+        "text": "Some foundations are in place and some are still to build. The areas below are where changes to how you fund are likely to make the most difference."
+      },
+      {
+        "min": 0,
+        "text": "Most of the foundations are still to build, which usually means impact is left to grant holders to work out alone. The two areas below are a good place to start."
+      }
+    ],
+    "cta": "I am testing these questions as much as you are. If this matches how your funding works, or misses something, I would like to hear which."
+  }
+};
+
+// ---------------------------------------------------------------------------
+// ENGINE. No need to edit below this line to change wording.
+// ---------------------------------------------------------------------------
+var el = function(id){ return document.getElementById(id); };
+var track = null, key = null, answers = {}, secIdx = 0;
+var SCREENS = ["chooser","intro","quiz","results"];
+
+function show(id){
+  SCREENS.forEach(function(s){ el(s).classList.toggle("hidden", s !== id); });
+  window.scrollTo({ top:0, behavior:"smooth" });
+}
+function setHash(h){
+  try { history.replaceState(null, "", h ? "#" + h : location.pathname); } catch(e) {}
+}
+
+// Chooser
+el("chEyebrow").textContent = SHARED.chooserEyebrow;
+el("chTitle").textContent = SHARED.chooserTitle;
+el("chLead").textContent = SHARED.chooserLead;
+el("chPrivacy").textContent = SHARED.privacy;
+el("inPrivacy").textContent = SHARED.privacy;
+el("ctaTitle").textContent = SHARED.ctaTitle;
+el("ctaContact").textContent = SHARED.contactNote;
+
+var arrow = '<svg width="20" height="20" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M8 1L15 8L8 15M15 8H1" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+el("choices").innerHTML = ORDER.map(function(k){
+  return '<button class="choice" data-k="' + k + '"><span><span class="t">' + TRACKS[k].label +
+         '</span><span class="d">' + TRACKS[k].blurb + '</span></span>' + arrow + '</button>';
+}).join("");
+Array.prototype.forEach.call(document.querySelectorAll(".choice"), function(b){
+  b.addEventListener("click", function(){ openTrack(b.dataset.k); });
+});
+
+function openTrack(k){
+  key = k; track = TRACKS[k]; answers = {}; secIdx = 0;
+  el("inEyebrow").textContent = track.label;
+  el("inTitle").textContent = track.title;
+  el("inLead").textContent = track.lead;
+  setHash(k);
+  show("intro");
+}
+function toChooser(){ key = null; track = null; setHash(""); show("chooser"); }
+
+el("toChooser1").addEventListener("click", toChooser);
+el("toChooser2").addEventListener("click", toChooser);
+el("start").addEventListener("click", function(){ renderSection(); show("quiz"); });
+
+// Questions
+function renderSection(){
+  var sec = track.sections[secIdx];
+  el("secName").textContent = sec.title;
+  el("secCount").textContent = "Section " + (secIdx+1) + " of " + track.sections.length;
+  el("progFill").style.width = (secIdx / track.sections.length * 100) + "%";
+
+  var html = "";
+  sec.questions.forEach(function(q, qi){
+    var k = sec.id + "-" + qi;
+    html += '<div class="q"><div class="q-text">' + q.text + '</div>';
+    q.opts.forEach(function(o, oi){
+      var on = answers[k] === (oi+1);
+      html += '<button class="opt' + (on ? " sel" : "") + '" aria-pressed="' + on + '" data-k="' + k + '" data-v="' + (oi+1) + '">' + o + '</button>';
+    });
+    html += '</div>';
+  });
+  el("qArea").innerHTML = html;
+  Array.prototype.forEach.call(el("qArea").querySelectorAll(".opt"), function(b){
+    b.addEventListener("click", function(){
+      answers[b.dataset.k] = parseInt(b.dataset.v, 10);
+      var y = window.scrollY; renderSection(); window.scrollTo(0, y);
+    });
+  });
+
+  el("back").style.visibility = secIdx === 0 ? "hidden" : "visible";
+  el("next").textContent = secIdx === track.sections.length-1 ? "See my profile" : "Next";
+  el("next").disabled = !sec.questions.every(function(q, qi){ return answers[sec.id + "-" + qi]; });
+}
+el("next").addEventListener("click", function(){
+  if (secIdx === track.sections.length-1){ showResults(); }
+  else { secIdx++; renderSection(); window.scrollTo({ top:0, behavior:"smooth" }); }
+});
+el("back").addEventListener("click", function(){
+  if (secIdx > 0){ secIdx--; renderSection(); window.scrollTo({ top:0, behavior:"smooth" }); }
+});
+
+// Results
+function dimScores(){
+  return track.sections.map(function(sec){
+    var v = sec.questions.reduce(function(t, q, qi){ return t + (answers[sec.id + "-" + qi] || 0); }, 0);
+    return { id:sec.id, title:sec.title, value:v };
+  });
+}
+function joinNames(list){
+  if (list.length === 1) return list[0];
+  return list.slice(0, -1).join(", ") + " and " + list[list.length-1];
+}
+
+function showResults(){
+  var dims = dimScores();
+  var total = dims.reduce(function(t, d){ return t + d.value; }, 0);
+  var summary = track.summaries.filter(function(s){ return total >= s.min; })[0];
+
+  el("resEyebrow").textContent = track.label;
+  el("resSummary").textContent = summary.text;
+
+  var max = Math.max.apply(null, dims.map(function(d){ return d.value; }));
+  var min = Math.min.apply(null, dims.map(function(d){ return d.value; }));
+  if (max === min) {
+    el("resStrong").textContent = max === 8 ? "Your answers are at the top of the scale in all six areas." : "Your answers are even across all six areas.";
+  } else {
+    var top = dims.filter(function(d){ return d.value === max; }).map(function(d){ return d.title; });
+    el("resStrong").textContent = "Your answers are strongest on " + joinNames(top) + ".";
+  }
+
+  el("dims").innerHTML = dims.map(function(d){
+    return '<div class="dim"><div class="dim-head"><span class="nm">' + d.title + '</span><span class="sc">' +
+           d.value + ' of 8</span></div><div class="dim-track"><div class="dim-fill" data-w="' +
+           (d.value / 8 * 100) + '"></div></div></div>';
+  }).join("");
+
+  var weakest = dims.slice().sort(function(a, b){ return a.value - b.value; }).slice(0, 2);
+  el("tips").innerHTML = weakest.map(function(d){
+    return '<div class="tip"><h3>' + d.title + '</h3><p>' + track.tips[d.id] + '</p></div>';
+  }).join("");
+
+  el("tipsBlock").classList.toggle("hidden", min === 8);
+  el("ctaText").textContent = track.cta;
+  drawRadar(dims);
+  show("results");
+  setTimeout(function(){
+    Array.prototype.forEach.call(document.querySelectorAll(".dim-fill"), function(f){ f.style.width = f.dataset.w + "%"; });
+  }, 150);
+}
+
+function drawRadar(dims){
+  var cx = 220, cy = 160, R = 110, n = dims.length;
+  function pt(i, r){ var a = (Math.PI*2*i/n) - Math.PI/2; return [cx + Math.cos(a)*r, cy + Math.sin(a)*r]; }
+  var s = "";
+  [0.25, 0.5, 0.75, 1].forEach(function(f){
+    var p = []; for (var i=0; i<n; i++){ p.push(pt(i, R*f).join(",")); }
+    s += '<polygon points="' + p.join(" ") + '" fill="none" stroke="#dfeae8" stroke-width="1"/>';
+  });
+  for (var i=0; i<n; i++){ var e = pt(i, R); s += '<line x1="'+cx+'" y1="'+cy+'" x2="'+e[0]+'" y2="'+e[1]+'" stroke="#dfeae8" stroke-width="1"/>'; }
+  var dp = dims.map(function(d, i){ return pt(i, R * d.value / 8).join(","); });
+  s += '<polygon points="' + dp.join(" ") + '" fill="#0B8A7A" fill-opacity="0.2" stroke="#0B8A7A" stroke-width="2"/>';
+  dims.forEach(function(d, i){ var p = pt(i, R * d.value / 8); s += '<circle cx="'+p[0]+'" cy="'+p[1]+'" r="3.5" fill="#0B8A7A"/>'; });
+  dims.forEach(function(d, i){
+    var p = pt(i, R + 22);
+    var anchor = Math.abs(p[0]-cx) < 12 ? "middle" : (p[0] > cx ? "start" : "end");
+    var dy = Math.abs(p[0]-cx) < 12 ? (p[1] < cy ? -2 : 12) : 4;
+    s += '<text x="'+p[0]+'" y="'+(p[1]+dy)+'" text-anchor="'+anchor+'" font-family="Lato,sans-serif" font-size="12" font-weight="700" fill="#3D5A73">' + d.title + '</text>';
+  });
+  el("radar").innerHTML = s;
+}
+
+el("retake").addEventListener("click", function(){ openTrack(key); });
+
+// Direct links: impact-readiness.html#researchers, #managers or #funders
+function route(){
+  var h = (location.hash || "").replace("#", "");
+  if (TRACKS[h]) { if (h !== key) { openTrack(h); } }
+  else { toChooser(); }
+}
+window.addEventListener("hashchange", route);
+route();
+</script>
+</body>
+</html>
